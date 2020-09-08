@@ -21,6 +21,8 @@ public class UserController {
 
     @RequestMapping("addUser/")
     public String addUser(@PathVariable User user){
+        if (null == user)
+            return "400 Bad request";
         return null;
     }
 }
