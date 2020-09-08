@@ -7,4 +7,6 @@ import org.springframework.stereotype.Repository;
 public interface UserMapper{
 
     User selectById(int id);
+
+    void addNewUser(User user);
 }

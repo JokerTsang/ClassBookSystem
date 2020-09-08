@@ -14,4 +14,9 @@ public class UserService {
     public User selectById(int id){
         return userMapper.selectById(id);
     }
+
+    public void addNewUser(User user){
+        // TODO valadation
+        userMapper.addNewUser(user);
+    }
 }

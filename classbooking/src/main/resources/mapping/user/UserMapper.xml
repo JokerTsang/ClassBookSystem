@@ -18,4 +18,9 @@
         select * from user where id = #{id}
     </select>
 
+    <insert id="addNewUser" parameterType="com.joker.classbooking.user.entity.User">
+        insert into user (identity , name , sex , password , telephone , userType , invitationCode)
+        values(#{identity}, #{name}, #{sex}, #{password}, #{telephone}, #{userType}, #{invitationCode})
+    </insert>
+
 </mapper>
