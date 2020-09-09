@@ -8,5 +8,7 @@ public interface UserMapper{
 
     User selectById(int id);
 
+    User selectByIdentity(String identity);
+
     void addNewUser(User user);
 }

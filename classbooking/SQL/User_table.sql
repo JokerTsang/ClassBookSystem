@@ -6,6 +6,6 @@ CREATE TABLE `user` (
   `password` varchar(50) NOT NULL,
   `telephone` varchar(20) NOT NULL,
   `userType` varchar(2) NOT NULL,
-  `invitationCode` varchar(2) NOT NULL,
+  `invitation_code` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8

@@ -24,7 +24,11 @@ public class UserController {
     public String addUser(@RequestBody User user){
         if (null == user)
             return "400 Bad request user can not be empty";
-        userService.addNewUser(user);
+        try {
+            user = userService.addNewUser(user);
+        } catch (Exception e) {
+            return e.getMessage();
+        }
         return user.toString();
     }
 }

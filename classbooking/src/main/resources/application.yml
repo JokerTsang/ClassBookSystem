@@ -11,10 +11,12 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*/*Mapper.xml
   type-aliases-package: com.joker.classbooking.user.entity
+  configuration:
+    map-underscore-to-camel-case: true
 
 #showSql
 logging:
   level:
-    com:
-      example:
-        mapper : debug
+    com.joker.classbooking:
+      invitationCode.mapper : debug
+      user.mapper : debug

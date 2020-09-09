@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.joker.classbooking.invitationCode.mapper.InvitationCodeMapper">
+
+    <resultMap id="InvitationCodeResultMap" type="com.joker.classbooking.invitationCode.entity.InvitationCode">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="invitation_code" jdbcType="VARCHAR" property="invitationCode" />
+        <result column="remain_count" jdbcType="INTEGER" property="remainCount" />
+        <result column="initial_amount" jdbcType="INTEGER" property="initialAmount" />
+        <result column="invitation_code_status" jdbcType="VARCHAR" property="invitationCodeStatus" />
+    </resultMap>
+
+    <select id="selectById" resultType="com.joker.classbooking.invitationCode.entity.InvitationCode">
+        select * from invitation_code where id = #{id}
+    </select>
+
+    <select id="selectByInvitationCode" resultType="com.joker.classbooking.invitationCode.entity.InvitationCode">
+        select * from invitation_code where invitation_code = #{invitationCode}
+    </select>
+
+    <insert id="addNewInvitationCode" parameterType="com.joker.classbooking.invitationCode.entity.InvitationCode">
+        insert into invitation_code (invitation_code , remain_count , initial_amount , invitation_code_status)
+        values(#{invitationCode, jdbcType=VARCHAR}, #{remainCount, jdbcType=INTEGER}, #{initialAmount, jdbcType=INTEGER}, #{invitationCodeStatus, jdbcType=VARCHAR})
+    </insert>
+
+    <update id="decreaseRemainingCount" parameterType="com.joker.classbooking.invitationCode.entity.InvitationCode">
+        update invitation_code set remain_count = remain_count - 1 where invitation_code = #{invitationCode, jdbcType=VARCHAR}
+    </update>
+
+</mapper>
