@@ -20,7 +20,7 @@
 
     <insert id="addNewUser" parameterType="com.joker.classbooking.user.entity.User">
         insert into user (identity , name , sex , password , telephone , userType , invitationCode)
-        values(#{identity}, #{name}, #{sex}, #{password}, #{telephone}, #{userType}, #{invitationCode})
+        values(#{identity, jdbcType=VARCHAR}, #{name, jdbcType=VARCHAR}, #{sex, jdbcType=VARCHAR}, #{password, jdbcType=VARCHAR}, #{telephone, jdbcType=VARCHAR}, #{userType, jdbcType=VARCHAR}, #{invitationCode, jdbcType=VARCHAR})
     </insert>
 
 </mapper>

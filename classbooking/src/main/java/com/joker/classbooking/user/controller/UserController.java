@@ -4,6 +4,7 @@ import com.joker.classbooking.user.entity.User;
 import com.joker.classbooking.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,10 +20,11 @@ public class UserController {
         return userService.selectById(id).toString();
     }
 
-    @RequestMapping("addUser/")
-    public String addUser(@PathVariable User user){
+    @RequestMapping("addUser")
+    public String addUser(@RequestBody User user){
         if (null == user)
             return "400 Bad request user can not be empty";
-        return null;
+        userService.addNewUser(user);
+        return user.toString();
     }
 }
